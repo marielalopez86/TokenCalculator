@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+        <style>
+                h1, h4, body {
+                    color: #E74292;
+                    text-align: center;
+                    font-family: Arial, Helvetica, sans-serif;
+                }
+                h1 {
+                    font-size: 80px;
+                    text-shadow: 2px 2px 4px #000000;
+                }
+                h4 {
+                    font-size: 30px;
+                }
+                body {
+                    background-image: url("bg1.jpg");
+                    background-color: black;
+                    line-height: 35px;
+                }   
+                #container {
+                padding: 10px 100px;
+                height: 525px;
+                width: 360px;
+                margin: 100px auto;
+                text-align: center;
+                background: #f7f7f7;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+                border-radius: 20px;
+                -webkit-border-radius: 20px;
+                -moz-border-radius: 20px;
+                }
+            
+            </style>
+<body>
+
+<h1>Token Calculator</h1>
+<h4>Tokens have values of 20, 10, 5, 2 and 1 unit(s)</h4>
+<div id="container">
+<h4>Please input a number between 20 and 100:</h4>
+
+<input id="userInput">
+
+<button type="button" onclick="myFunction()">Submit</button>
+
+<p id="token"></p>
+</div>
+<script>
+function myFunction() {
+  var x, text, twenty, ten, five, one;
+
+  // Get the value of the input field with id="userInput"
+  x = document.getElementById("userInput").value;
+
+  // If x is Not a Number or less than 20 or greater than 100
+  if (isNaN(x) || x < 20 || x > 100) {
+    document.getElementById("token").innerHTML ="Invalid input, try again";
+  } 
+  else {
+    var twenty = Math.floor(x/20);
+    x %= 20
+    var ten = Math.floor(x/10);
+    x %= 10
+    var five = Math.floor(x/5);
+    x %= 5
+    var two = Math.floor(x/2);
+    x %= 2
+
+    var one = x;
+
+    text = [('Token of 20 x ' + twenty),  
+    ('<br>Token of 10 x ' + ten ), 
+    ('<br>Token of 5 x ' + five ),
+    ('<br>Token of 2 x ' + two ),
+    ('<br>Token of 1 x ' + one)] ;
+  }
+
+  if (twenty == 0) {
+      text.shift();
+  }
+  //document.getElementById("token").innerHTML = text;
+
+  if (twenty != 0) {
+    document.getElementById("token").innerHTML = text[0];
+  } else {
+      document.getElementById("token").innerHTML = "";
+  }
+
+  if (ten != 0) {
+      document.getElementById("token").innerHTML += text[1];
+  } else {
+      document.getElementById("token").innerHTML += "";
+  }
+
+  if (five != 0) {
+      document.getElementById("token").innerHTML += text[2];
+  } else {
+      document.getElementById("token").innerHTML += "";
+  }
+
+  if (two != 0) {
+      document.getElementById("token").innerHTML += text[3];
+  } else {
+      document.getElementById("token").innerHTML += "";
+  }
+
+  if (one != 0) {
+      document.getElementById("token").innerHTML += text[4];
+  } else {
+      document.getElementById("token").innerHTML += "";
+  }
+
+
+}
+</script>
+
+</body>
+</html> 
